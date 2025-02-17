@@ -7,15 +7,15 @@ const DashboardCards = () => {
   return (
     <div className="grid grid-cols-3 gap-5 w-full mt-10">
       <CircularGauge
-        className="w-full col-end-3 lg:col-span-1"
+        className="w-full col-span-3 lg:col-span-1"
         score={660}
         maxScore={1000}
         lastCheckDate="21 Apr"
       />
 
-      <RolePlayStats className="w-full col-end-3 lg:col-span-1" />
+      <RolePlayStats className="w-full col-span-3 lg:col-span-1" />
 
-      <MoreStats />
+      <MoreStats className="w-full col-span-3 lg:col-span-1" />
     </div>
   );
 };

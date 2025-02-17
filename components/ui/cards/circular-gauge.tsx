@@ -1,9 +1,11 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { X } from "lucide-react";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 interface CircularGaugeProps {
   score: number;
@@ -19,6 +21,7 @@ const CircularGauge = ({
   className,
 }: CircularGaugeProps) => {
   const percentage = (score / maxScore) * 100;
+  const [showPopup, setShowPopup] = useState(false);
 
   const getScoreText = (score: number) => {
     if (score < 500) return "below average";
@@ -141,9 +144,55 @@ const CircularGauge = ({
         <Button
           variant="secondary"
           className="text-sm text-gray-500 hover:text-gray-700"
+          onClick={() => setShowPopup(true)}
         >
           What these stats mean?
         </Button>
+
+        {/* Popup */}
+        <AnimatePresence>
+          {showPopup && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+              onClick={() => setShowPopup(false)}
+            >
+              <motion.div
+                initial={{ scale: 0.95 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.95 }}
+                onClick={(e) => e.stopPropagation()}
+                className="bg-white flex flex-col items-center rounded-[20px] p-6 w-[300px] relative"
+              >
+                <button
+                  onClick={() => setShowPopup(false)}
+                  className="absolute -top-[16px] bg-white rounded-full p-2 border hover:scale-110 duration-300 hover:text-gray-700"
+                >
+                  <X size={20} />
+                </button>
+
+                <div className="w-full relative gap-3 mb-4">
+                  <div className=" size-[50px] left-0">
+                    <DotLottieReact
+                      src="https://lottie.host/21b7a055-e4f3-4eea-ab7b-2f77390cde34/Gwx09DaMkB.lottie"
+                      autoplay
+                      width={28}
+                      height={28}
+                      className="bg-[#09B5FE24]  size-[28] rounded-[16px]"
+                    />
+                  </div>
+                </div>
+
+                <p>
+                  An average of your total quiz scores so you can keep tabs on
+                  your progress and advancements!
+                </p>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </Card>
   );

@@ -2,6 +2,7 @@
 import React from "react";
 import { BookOpen, Clock, LucideIcon, Palette } from "lucide-react";
 import RolePlayVector from "../vector/role-play-vector";
+import { cn } from "@/lib/utils";
 
 interface RolePlayCardProps {
   title: string;
@@ -36,7 +37,10 @@ const RolePlayCard = ({
   return (
     <div
       style={{ backgroundImage: bgImg }}
-      className={`relative bg-cover bg-no-repeat w-full  overflow-hidden rounded-3xl h-[602px] ${className}`}
+      className={cn(
+        `relative bg-cover bg-no-repeat w-full  overflow-hidden rounded-3xl h-[602px]`,
+        className
+      )}
     >
       <RolePlayVector
         className="w-full absolute left-0 -bottom-5"
