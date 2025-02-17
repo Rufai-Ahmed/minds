@@ -10,7 +10,7 @@ const DashboardHeader = () => {
 
   return (
     <header className="flex items-center justify-between w-full">
-      <div className="w-full">
+      <div className="w-full md:hidden">
         <div className="flex items-center justify-between w-full md:hidden">
           <h1 className={`${bebas.className} text-5xl`}>logo </h1>
 
@@ -33,7 +33,7 @@ const DashboardHeader = () => {
           </div>
         </div>
 
-        <div className="relative my-10 flex items-center">
+        <div className="relative md:hidden my-10 flex items-center">
           <Search size={17} className="absolute left-4" />
           <Input
             className="border-none shadow-none bg-white rounded-[20px] w-[392px] pl-10 h-[53px]"

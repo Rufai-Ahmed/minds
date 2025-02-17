@@ -5,7 +5,7 @@ import { Card } from "../card";
 const MoreStats = ({ className }: { className?: string }) => {
   return (
     <Card className={cn("p-6", className)}>
-      <div className="flex flex-col text-center w-full items-center justify-between h-full">
+      <div className="flex flex-col gap-4 text-center w-full items-center justify-between h-full">
         <h2 className="text-[13px] font-semibold text-[#7A7A7A] uppercase">
           More stats
         </h2>

@@ -38,58 +38,57 @@ const LearningActivities = () => {
         ongoing activity
       </h1>
 
-      <div className="flex overflow-x-auto gap-4 pb-4">
-        <div className="flex flex-nowrap gap-4">
-          {ongoingActivities.map((activity, index) => (
-            <div
-              key={index}
-              className="relative w-[350px] h-fit bg-white rounded-2xl overflow-hidden"
-            >
-              <div className="overflow-hidden h-fit">
-                <div className="p-2">
-                  <Image
-                    src={activity.image}
-                    alt={activity.title}
-                    width={100}
-                    height={100}
-                    unoptimized
-                    className="object-cover w-full rounded-2xl h-[268px]"
-                  />
+      <div className="flex w-full overflow-x-auto overflow-y-visible scrollbar-hide gap-10  flex-nowrap">
+        {" "}
+        {ongoingActivities.map((activity, index) => (
+          <div
+            key={index}
+            className="relative w-[350px] h-fit  bg-white rounded-2xl flex-shrink-0"
+          >
+            <div className="overflow-hidden h-fit">
+              <div className="p-2">
+                <Image
+                  src={activity.image}
+                  alt={activity.title}
+                  width={100}
+                  height={100}
+                  unoptimized
+                  className="object-cover w-full rounded-2xl h-[268px]"
+                />
+              </div>
+
+              <div className="bg-white p-4 pt-1">
+                <div className="flex items-center gap-3 mb-2">
+                  <Button className="bg-black size-[43px] rounded-[10px] shadow-activity-icon text-white text-[20px]">
+                    <MessageCircleIcon size={20} />
+                  </Button>
+
+                  <h2 className="text-[15px] font-semibold">
+                    {activity.title}
+                  </h2>
                 </div>
-
-                <div className="bg-white p-4 pt-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <Button className="bg-black size-[43px] rounded-[10px] shadow-activity-icon text-white text-[20px]">
-                      <MessageCircleIcon size={20} />
-                    </Button>
-
-                    <h2 className="text-[15px] font-semibold">
-                      {activity.title}
-                    </h2>
-                  </div>
-                  <div className="flex items-center w-full gap-2 justify-between">
-                    <div className="w-full max-w-[70%]">
-                      <div className="h-1 bg-gray-200 rounded-full">
-                        <div
-                          className="h-full w-[20%] bg-yellow-400 rounded-full"
-                          style={{ width: activity.progress }}
-                        ></div>
-                      </div>
+                <div className="flex items-center w-full gap-2 justify-between">
+                  <div className="w-full max-w-[70%]">
+                    <div className="h-1 bg-gray-200 rounded-full">
+                      <div
+                        className="h-full w-[20%] bg-yellow-400 rounded-full"
+                        style={{ width: activity.progress }}
+                      ></div>
                     </div>
-                    <span
-                      className={`bg-white rounded-[43px] shadow-lg ${bebas.className} text-[12px] px-[6px] text-nowrap`}
-                    >
-                      {activity.progress} COMPLETE
-                    </span>
                   </div>
-                  <button className="mt-4 w-full bg-[#68A7AD] text-white py-3 rounded-full shadow-activity-button text-[14px] hover:bg-[#5a9195] transition-colors">
-                    Continue course
-                  </button>
+                  <span
+                    className={`bg-white rounded-[43px] shadow-lg ${bebas.className} text-[12px] px-[6px] text-nowrap`}
+                  >
+                    {activity.progress} COMPLETE
+                  </span>
                 </div>
+                <button className="mt-4 w-full bg-[#68A7AD] text-white py-3 rounded-full shadow-activity-button text-[14px] hover:bg-[#5a9195] transition-colors">
+                  Continue course
+                </button>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   );

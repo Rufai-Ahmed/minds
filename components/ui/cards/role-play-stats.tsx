@@ -6,7 +6,7 @@ import { Box, ChevronUp, Star } from "lucide-react";
 const RolePlayStats = ({ className }: { className?: string }) => {
   return (
     <Card className={cn("p-6 w-[340px]", className)}>
-      <div className="flex flex-col w-full items-center justify-between h-full">
+      <div className="flex flex-col gap-4 w-full items-center justify-between h-full">
         <h2 className="text-[13px] font-semibold text-[#7A7A7A] uppercase">
           Role Play stats
         </h2>

@@ -19,7 +19,9 @@ export default function RootLayout({
         <SidebarProvider>
           <AppSidebar variant="inset" />
           <SidebarInset>
-            <div className="p-7 lg:p-10">{children}</div>
+            <div className="container p-4 lg:px-8 mx-auto max-w-7xl">
+              {children}
+            </div>
           </SidebarInset>
         </SidebarProvider>
       </body>
